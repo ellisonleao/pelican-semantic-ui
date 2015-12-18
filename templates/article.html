@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block meta_tags %}
+<meta property="og:title" content="{{ article.title }}" />
+<meta property="og:url" content="{{ article.url }}"/>
+<meta property="og:description" content=" {{ article.meta_description }}" />
+<meta property="og:type" content="article" />
+<meta property="og:author" content="{{ article.author }}" />
+{% endblock %}
+
+
+{% block content %}
+<div class="ui main text container center aligned article-top">
+    <h1 class="ui header article-huge">{{ article.title }}</h1>
+    {% if article.subtitle %}
+    <h5 class="ui header">{{ article.subtitle }}</h5>
+    {% endif %}
+</div>
+
+<div class="ui text container">
+    <div class="overlay">
+        <div class="ui labeled icon vertical menu">
+            <a class="item"><i class="twitter icon"></i> Tweet</a>
+            <a class="item"><i class="facebook icon"></i> Share</a>
+            <a class="item"><i class="google plus icon"></i> Share</a>
+            <a class="item"><i class="mail icon"></i> E-mail</a>
+        </div>
+    </div>
+    {{ article.content }}
+
+    {% if DISQUS_SITENAME %}
+    {% include 'disqus.html' %}
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.overlay').visibility({
+        type: 'fixed',
+        offset: 80
+    });
+});
+</script>
+{% endblock %}
