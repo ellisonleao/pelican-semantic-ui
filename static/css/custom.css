@@ -6,6 +6,10 @@ body {
 	min-height: 600px;
 }
 
+.articles {
+    margin-bottom: 50px !important;
+}
+
 .main.menu {
     margin-top: 4em;
     border-radius: 0;
@@ -58,4 +62,16 @@ body {
 
 .article-huge {
     font-size: 4em !important;
+}
+
+.chevron:hover {
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+}
+
+.page-text {
+    font-size: 1.5em;
 }

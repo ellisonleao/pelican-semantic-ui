@@ -1,0 +1,14 @@
+{% if articles_page and articles_paginator.num_pages > 1 %}
+<div class="ui grid equal width container">
+    <div class="column left aligned">
+    {% if articles_page.has_previous() %}
+    <a class="page-text" href="{{ SITEURL }}/{{ articles_previous_page.url }}"><i class="chevron left icon"></i> Newer</a></li>
+    {% endif %}
+    </div>
+    <div class="column right aligned">
+    {% if articles_page.has_next() %}
+	<a class="page-text" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older <i class="chevron right icon"></i></a></li>
+    {% endif %}
+    </div>
+</div>
+{% endif %}

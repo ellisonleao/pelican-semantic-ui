@@ -39,8 +39,8 @@
     {% block content %}
     <div class="ui grid main container">
         {% if articles %}
-        {% for article in articles %}
-        <div class="ui grid left aligned container stackable">
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+        <div class="ui grid left aligned container stackable articles">
             <div class="ui two wide column right floated">
                 <div class="ui statistics">
                     <div class="statistic">
@@ -60,6 +60,7 @@
             </div>
         </div>
         {% endfor %}
+        {% include 'pagination.html' %}
         {% endif %}
     </div>
     {% endblock %}
