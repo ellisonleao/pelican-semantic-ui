@@ -10,27 +10,29 @@
 
 
 {% block content %}
-<div class="ui main text container center aligned article-top">
-    <h1 class="ui header article-huge">{{ article.title }}</h1>
-    {% if article.subtitle %}
-    <h5 class="ui header">{{ article.subtitle }}</h5>
-    {% endif %}
-</div>
-
-<div class="ui text container">
-    <div class="overlay">
-        <div class="ui labeled icon vertical menu">
-            <a class="item"><i class="twitter icon"></i> Tweet</a>
-            <a class="item"><i class="facebook icon"></i> Share</a>
-            <a class="item"><i class="google plus icon"></i> Share</a>
-            <a class="item"><i class="mail icon"></i> E-mail</a>
-        </div>
+<div class="ui main container">
+    <div class="ui text container center aligned article-top">
+        <h1 class="ui header article-huge">{{ article.title }}</h1>
+        {% if article.subtitle %}
+        <h3 class="ui header">{{ article.subtitle }}</h3>
+        <span class="ui author">by {{ article.author }} on {{ article.date.strftime('%d %B %Y')}}</span>
+        {% endif %}
     </div>
-    {{ article.content }}
+    <div class="ui text container tall stacked segment">
+        <div class="overlay">
+            <div class="ui labeled icon vertical menu">
+                <a class="item"><i class="twitter icon"></i> Tweet</a>
+                <a class="item"><i class="facebook icon"></i> Share</a>
+                <a class="item"><i class="google plus icon"></i> Share</a>
+                <a class="item"><i class="mail icon"></i> E-mail</a>
+            </div>
+        </div>
+        {{ article.content }}
 
-    {% if DISQUS_SITENAME %}
-    {% include 'disqus.html' %}
-    {% endif %}
+        {% if DISQUS_SITENAME %}
+        {% include 'disqus.html' %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
 

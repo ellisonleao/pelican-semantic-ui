@@ -25,8 +25,8 @@
     <meta name="twitter:site" content="@{{ TWITTER_USERNAME }}">
     {% endif %}
     {% block twitter_card %}
-    <meta name="twitter:title" content="EsseProduto.com.br">
-    <meta name="twitter:description" content="Confiabilidade através de prova social na aquisição de produtos digitais">
+    <meta name="twitter:title" content="{{ SITENAME }}">
+    <meta name="twitter:description" content="{{ DESCRIPTION }}">
     <!--meta name="twitter:image" content=""-->
     {% endblock %}
 
@@ -46,12 +46,6 @@
     {% include 'footer.html'%}
     <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
     <script type="text/javascript" src="{{ SITEURL }}/theme/js/semantic.min.js"></script>
-    <script type="text/javascript">
-        // fix main menu to page on passing
-        $('.main.menu').visibility({
-            type: 'fixed'
-        });
-    </script>
     {% block extra_scripts %}
     {% endblock %}
     {% if DISQUS_SITENAME %}
