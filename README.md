@@ -1,7 +1,7 @@
 Pelican Semantic-UI Theme
 =========================
 
-![](ttp://i.imgur.com/DN9LPoB.png)
+![](http://i.imgur.com/DN9LPoB.png)
 
 This is a small clean Blog Template using Semantic-UI framework
 
