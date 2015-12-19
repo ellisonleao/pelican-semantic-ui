@@ -6,6 +6,15 @@ body {
 	min-height: 600px;
 }
 
+.intro {
+    background: #32B4AA;
+    margin-top: 30px !important;
+    margin-bottom: 60px !important;
+    border-bottom: 1px solid #eee;
+    padding: 100px !important;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .articles {
     margin-bottom: 50px !important;
 }
@@ -74,4 +83,11 @@ body {
 
 .page-text {
     font-size: 1.5em;
+}
+.archive {
+	margin-bottom: 30px;
+}
+
+.archive a {
+	padding-left: 15px;
 }

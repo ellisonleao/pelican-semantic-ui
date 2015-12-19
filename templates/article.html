@@ -12,29 +12,27 @@
 
 
 {% block content %}
-<div class="ui main container">
-    <div class="ui text container center aligned article-top">
-        <h1 class="ui header article-huge">{{ article.title }}</h1>
-        {% if article.subtitle %}
-        <h3 class="ui header">{{ article.subtitle }}</h3>
-        <span class="ui author">by {{ article.author }} on {{ article.date.strftime('%d %B %Y')}}</span>
-        {% endif %}
-    </div>
-    <div class="ui text container tall stacked segment">
-        <div class="overlay">
-            <div class="ui labeled icon vertical menu">
-                <a class="item sharer" data-sharer="twitter" data-title="{{ article.title}}" data-url="{{ SITEURL}}/{{ article.url }}"><i class="twitter icon"></i> Tweet</a>
-                <a data-sharer="facebook" data-url="{{ SITEURL}}/{{ article.url }}" class="item sharer"><i class="facebook icon"></i> Share</a>
-                <a data-sharer="googleplus" data-url="{{ SITEURL}}/{{ article.url }}" class="item sharer"><i class="google plus icon"></i> Share</a>
-                <a class="item sharer" data-sharer="email" data-title="{{ article.title}}" data-subject="Checkout this article!" data-url="{{ SITEURL }}/{{ article.url }}"><i class="mail icon"></i> E-mail</a>
-            </div>
+<div class="ui text container center aligned article-top">
+    <h1 class="ui header article-huge">{{ article.title }}</h1>
+    {% if article.subtitle %}
+    <h3 class="ui header">{{ article.subtitle }}</h3>
+    <span class="ui author">by {{ article.author }} on {{ article.date.strftime('%d %B %Y')}}</span>
+    {% endif %}
+</div>
+<div class="ui text container tall stacked segment">
+    <div class="overlay">
+        <div class="ui labeled icon vertical menu">
+            <a class="item sharer" data-sharer="twitter" data-title="{{ article.title}}" data-url="{{ SITEURL}}/{{ article.url }}"><i class="twitter icon"></i> Tweet</a>
+            <a data-sharer="facebook" data-url="{{ SITEURL}}/{{ article.url }}" class="item sharer"><i class="facebook icon"></i> Share</a>
+            <a data-sharer="googleplus" data-url="{{ SITEURL}}/{{ article.url }}" class="item sharer"><i class="google plus icon"></i> Share</a>
+            <a class="item sharer" data-sharer="email" data-to="" data-title="{{ article.title}}" data-subject="Checkout this article!" data-url="{{ SITEURL }}/{{ article.url }}"><i class="mail icon"></i> E-mail</a>
         </div>
-        {{ article.content }}
-
-        {% if DISQUS_SITENAME %}
-        {% include 'disqus.html' %}
-        {% endif %}
     </div>
+    {{ article.content }}
+
+    {% if DISQUS_SITENAME %}
+    {% include 'disqus.html' %}
+    {% endif %}
 </div>
 {% endblock %}
 

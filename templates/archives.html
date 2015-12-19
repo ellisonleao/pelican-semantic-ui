@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui grid intro">
+    <div class="row">
+        <div class="column center aligned">
+            <h1>Archives</h1>
+        </div>
+    </div>
+</div>
+<div class="ui grid main container center aligned stackable">
+    <div class="ui list">
+        {% for article in dates %}
+        <div class="item archive">
+            <i class="ui icon calendar"></i>
+            <div class="content">
+                <h3>
+                {{ article.date.strftime('%d/%m/%Y') }}
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}{% if article.subtitle %} - {{ article.subtitle }}{% endif %}</a>
+                </h3>
+            </div>
+	</div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock %}

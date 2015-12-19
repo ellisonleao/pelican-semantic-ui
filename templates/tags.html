@@ -3,16 +3,22 @@
 {% block title %}Tags - {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<div class="ui main grid container">
+<div class="ui grid intro">
+    <div class="row">
+        <div class="column center aligned">
+            <h1>Tags</h1>
+        </div>
+    </div>
+</div>
+<div class="ui grid main container">
     <div class="ui container">
-        <h2 class="ui header center aligned">Tags for {{ SITENAME }}</h2>
         {% if tags %}
         <div class="ui styled accordion fluid">
             {% for tag, articles in tags|sort %}
             <div class="item">
                 <div class="title">
                     <i class="dropdown icon"></i>
-                    <span class="ui tag label green">{{ tag }} - {{ articles|count }} posts</span>
+                    <span class="ui tag big label green">{{ tag }} - {{ articles|count }} posts</span>
                 </div>
                 <div class="content">
                     {% for article in articles %}
