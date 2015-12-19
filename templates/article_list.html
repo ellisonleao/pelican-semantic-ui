@@ -1,0 +1,30 @@
+{% block content %}
+<div class="ui grid main container">
+    {% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+    <div class="ui grid left aligned container stackable articles">
+        <div class="ui two wide column right floated">
+            <div class="ui statistics">
+                <div class="statistic">
+                    <div class="value">
+                        {{ article.date.strftime('%d')}}
+                    </div>
+                    <div class="label">
+                        <i class="ui icon calendar"></i> {{ article.date.strftime('%b/%Y')}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui twelve wide column left aligned">
+            <a class="ui header huge" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            <p class="ui text">{{ article.summary }}</p>
+            <p><strong><a href="{{ SITEURL }}/{{ article.url }}">Leia mais</a></strong></p>
+        </div>
+    </div>
+    {% endfor %}
+    {% include 'pagination.html' %}
+    {% else %}
+    <h3>No articles yet! Please write one.</h3>
+    {% endif %}
+</div>
+{% endblock %}
