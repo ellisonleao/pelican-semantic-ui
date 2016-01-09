@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Authors - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<div class="ui grid intro">
+    <div class="row">
+        <div class="column center aligned">
+            <h1>Authors</h1>
+        </div>
+    </div>
+</div>
+<div class="ui grid main container">
+    <div class="ui container">
+        {% if authors %}
+        <div class="ui styled accordion fluid">
+            {% for author, articles in authors|sort %}
+            <div class="item">
+                <div class="title">
+                    <i class="dropdown icon"></i>
+                    <span class="ui big label">{{ author }} - {{ articles|count }} posts</span>
+                </div>
+                <div class="content">
+                    {% for article in articles %}
+                    <div class="ui three column grid">
+                        <div class="two wide column">
+                           <i class="icon calendar"></i> {{ article.date.strftime('%d/%m/%Y') }}
+                        </div>
+                        <div class="fourteen wide column">
+                            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <h3 class="ui header">No authors</h3>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script type="text/javascript">
+    $('.ui.accordion').accordion();
+</script>
+{% endblock %}
